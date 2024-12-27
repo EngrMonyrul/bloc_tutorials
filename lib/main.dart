@@ -1,5 +1,7 @@
-import 'package:bloc_tutorials/topics/equatable/eq_exm_1.dart';
+import 'package:bloc_tutorials/topicsPresentation/counter/bloc_counter.dart';
+import 'package:bloc_tutorials/topicsPresentation/counterBloc/counter_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -12,9 +14,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: EqExm1(),
+    return BlocProvider(
+      create: (context) => CounterBloc(),
+      child: const MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: BlocCounter(),
+      ),
     );
   }
 }
